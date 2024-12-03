@@ -1,0 +1,29 @@
+stages:
+  - build
+
+build-and-run-job:
+  stage: build
+  image: node:20
+  only:
+    - main
+  tags:
+    - main-runner
+  before_script:
+    - envsubst < src/config/config.ts > src/config/config.ts.tmp && mv src/config/config.ts.tmp src/config/config.ts
+    - yarn install --cache-folder .yarn --prefer-offline
+    - yarn add sharp
+    - yarn build
+  script:
+    - pm2 stop next-app || true
+    - pm2 delete next-app || true
+    - pm2 start npm --name "next-app" -- start
+  after_script:
+    - pm2 save
+  artifacts:
+    name: next
+    paths:
+      - .next/
+  cache:
+    key: yarn
+    paths:
+      - .yarn/
