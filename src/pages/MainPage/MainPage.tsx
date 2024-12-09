@@ -24,7 +24,7 @@ const MainPage: FC<TypeMainPageProps> = ({
       {/* <div className="py-8">
         <Stories />
       </div> */}
-      <div className="flex flex-row justify-between">
+      <div className="mt-10 flex flex-row justify-between">
         <div className="flex flex-row gap-1">
           <h2 className="text-2xl">Каталог продукции </h2>
           <span className="text-md mb-auto text-black">

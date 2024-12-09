@@ -11,7 +11,7 @@ const Banner = () => {
   const [emblaRef] = useEmblaCarousel({}, [Autoplay()]);
 
   return (
-    <div className="border-b border-slate-200">
+    <div className="">
       <div className="lg:container">
         <div className="relative mx-5 mt-10 flex h-screen w-auto flex-row justify-between bg-[#E3DDDF] sm:h-[80vh] md:aspect-[16/6] md:h-auto">
           <Image
