@@ -52,7 +52,7 @@ export default async function RootLayout({
     <StoreProvider>
       <html lang="en" className={GeistSans.variable}>
         <body className="border-slate-200 text-slate-900">
-          <Header categories={categories.result} />
+          <Header />
           <Suspense>
             <main>{children}</main>
           </Suspense>
