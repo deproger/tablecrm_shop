@@ -5,6 +5,7 @@ export type TypeCategory = {
   parent?: number;
   status: boolean;
   id: number;
+  images: { default: string; hover: string };
   updated_at: number;
   created_at: number;
 };

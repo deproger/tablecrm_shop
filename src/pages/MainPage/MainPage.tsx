@@ -24,7 +24,7 @@ const MainPage: FC<TypeMainPageProps> = ({
       {/* <div className="py-8">
         <Stories />
       </div> */}
-      <div className="mt-10 flex flex-row justify-between">
+      <div className="mx-auto mt-10 flex max-w-[1050px] flex-row justify-between">
         <div className="flex flex-row gap-1">
           <h2 className="text-2xl">Каталог продукции </h2>
           <span className="text-md mb-auto text-black">
@@ -39,21 +39,23 @@ const MainPage: FC<TypeMainPageProps> = ({
           <ArrowRightIcon className="h-7 w-7 w-fit rounded bg-[#179C49] p-1 font-bold text-white" />
         </Link>
       </div>
-      {categories.map((category) => {
-        const productsByCategory = products.filter(
-          (product) => product.category === category.id,
-        );
+      <div className="mx-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {categories.map((category) => {
+          const productsByCategory = products.filter(
+            (product) => product.category === category.id,
+          );
 
-        if (!productsByCategory.length) {
-          return null;
-        }
+          if (!productsByCategory.length) {
+            return null;
+          }
 
-        return (
-          <section key={category.id} className="mt-4 lg:mt-10">
-            <MainProducts category={category} />
-          </section>
-        );
-      })}
+          return (
+            <section key={category.id} className="mt-4 lg:mt-10">
+              <MainProducts category={category} images={category.images} />
+            </section>
+          );
+        })}
+      </div>
 
       {brands.map((brand) => {
         return (
